@@ -34,26 +34,45 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/Binary Search.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">var test = [1, 2, 3, 4, 5, 5, 6, 14, 22, 33, 41, 46]
-
-function binary(target, arr, l, r) {
-    if (l &lt;= r) { //when l index&gt;= r index stop searching
-        if (arr[l] == target) //if(value of l index is target just return this index)
-            return l;
-        if (arr[r] == target) // same way return the right index
-            return r;
-        var mid = Math.ceil((r + l) / 2); // get int number not double
-        if (arr[mid] == target) {
-            return mid; //get it
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Binary Search
+ * @param target  -- the number we want to find
+ * @param arr -- the list of numbers
+ * @param left -- the left index
+ * @param right -- the right index
+ * @returns {*}
+ */
+function binary(target, arr, left, right) {
+    //when left index&gt;= right index stop searching
+    if (left &lt;= right) {
+        //if(value of l index is target just return this index)
+        if (arr[left] === target)
+            return left;
+        // same way return the right index
+        if (arr[right] === target)
+            return right;
+        // get int number by upper the double
+        const mid = Math.ceil((right + left) / 2);
+        if (arr[mid] === target) {
+            return mid;
         } else if (arr[mid] &gt; target) {
-            return binary(target, arr, l, mid - 1); //if tareget&lt;= mid ,just search in left part of array
+            // if target&lt;= mid, search in left part of array
+            return binary(target, arr, left, mid - 1); //
         } else {
-            return binary(target, arr, mid + 1, r); //just search in right part.
+            // search in right part
+            return binary(target, arr, mid + 1, right);
         }
     }
-    return -1; // can not find target in array return -1
+    // if can not find target in array, then return -1
+    return -1;
 }
-binary(14, Arr, 0, Arr.length - 1)</code></pre>
+
+/**
+ * The list we want to search certain number in
+ * @type {number[]}
+ */
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23, 44, 86];
+console.log(binary(44, arr, 0, arr.length - 1));</code></pre>
 
 </div>
 
