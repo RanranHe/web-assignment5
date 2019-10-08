@@ -1,3 +1,4 @@
+// reference: https://www.geeksforgeeks.org/binary-search/
 /**
  * Binary Search
  * @param target  -- the number we want to find
@@ -31,5 +32,10 @@ function binary(target, arr, left, right) {
     return -1;
 }
 
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23, 44, 86];
+/**
+ * The list we want to search certain number in
+ * @type {number[]}
+ */
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23, 44, 86];
 console.log(binary(44, arr, 0, arr.length - 1));
+binary(44, arr, 0, arr.length - 1);
