@@ -3,11 +3,17 @@
  * Binary Search
  * @param target  -- the number we want to find
  * @param arr -- the list of numbers
- * @param left -- the left index
- * @param right -- the right index
- * @returns {*}
+ * @returns {*} return an index
  */
 function binary(target, arr) {
+    /**
+     * Actual do Binary Search
+     * @param target  -- the number we want to find
+     * @param arr -- the list of numbers
+     * @param left -- the left index
+     * @param right -- the right index
+     * @returns {*} return an index
+     */
     let search = (target, arr, left = 0, right = arr.length -1) => {
         //when left index>= right index stop searching
         if (left <= right) {
@@ -40,5 +46,5 @@ function binary(target, arr) {
  * @type {number[]}
  */
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23, 44, 86];
-console.log(binary(44, arr));
-binary(44, arr);
+console.log(binary(3, arr));
+binary(3, arr);
